@@ -1,58 +1,92 @@
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center'
+export default styles = StyleSheet.create({
+    container:{
+      flex:1,
+      marginTop:20,
     },
-    title: {
-
+    container2:{
+       
+        alignItems:'center',
+        
+      },
+    list: {
+      
+      paddingHorizontal: 5,
+      
+     
     },
-    logo: {
-        flex: 1,
-        height: 120,
-        width: 90,
-        alignSelf: "center",
-        margin: 30
+    listContainer:{
+      alignItems:'center'
     },
-    input: {
-        height: 48,
-        borderRadius: 5,
-        overflow: 'hidden',
-        backgroundColor: 'white',
-        marginTop: 10,
-        marginBottom: 10,
-        marginLeft: 30,
-        marginRight: 30,
-        paddingLeft: 16
+    /******** card **************/
+    card:{
+      shadowColor: '#00000021',
+  
+      shadowOffset: {
+        width: 0,
+        height: 6,
+      },
+      shadowOpacity: 0.37,
+      shadowRadius: 7.49,
+  
+      elevation: 12,
+      marginVertical: 10,
+      backgroundColor:"white",
+      flexBasis: '42%',
+      marginHorizontal: 10,
     },
-    button: {
-        backgroundColor: '#788eec',
-        marginLeft: 30,
-        marginRight: 30,
-        marginTop: 20,
-        height: 48,
-        borderRadius: 5,
-        alignItems: "center",
-        justifyContent: 'center'
+    cardHeader: {
+      paddingVertical: 17,
+      paddingHorizontal: 16,
+      borderTopLeftRadius: 1,
+      borderTopRightRadius: 1,
+      flexDirection: 'row',
+      alignItems:"center", 
+      justifyContent:"center"
     },
-    buttonTitle: {
-        color: 'white',
-        fontSize: 16,
-        fontWeight: "bold"
+    cardContent: {
+      paddingVertical: 12.5,
+      paddingHorizontal: 16,
     },
-    footerView: {
-        flex: 1,
-        alignItems: "center",
-        marginTop: 20
+    cardFooter:{
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingTop: 12.5,
+      paddingBottom: 25,
+      paddingHorizontal: 16,
+      borderBottomLeftRadius: 1,
+      borderBottomRightRadius: 1,
     },
-    footerText: {
-        fontSize: 16,
-        color: '#2e2e2d'
+    cardImage:{
+      height: 70,
+      width: 70,
+      alignSelf:'center'
     },
-    footerLink: {
-        color: "#788eec",
-        fontWeight: "bold",
-        fontSize: 16
-    }
-})
+    title:{
+      fontSize:18,
+      flex:1,
+      alignSelf:'center',
+      color:"#696969"
+    },cardRounded:{
+        shadowColor: '#474747',
+        shadowOffset: {
+          width: 0,
+          height: 6,
+        },
+        shadowOpacity: 0.37,
+        shadowRadius: 7.49,
+    
+        elevation: 12,
+        marginVertical: 20,
+        marginHorizontal: 40,
+        backgroundColor:"#e2e2e2",
+        //flexBasis: '42%',
+        width:180,
+        height:180,
+        borderRadius:90,
+        alignItems:'center',
+        justifyContent:'center'
+      }
+  });   
+                 
