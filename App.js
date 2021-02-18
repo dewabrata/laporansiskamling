@@ -19,6 +19,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Dashboard from './Screen/Dashboard/Dashboard';
 import auth from '@react-native-firebase/auth';
 import Maps from './Screen/Maps/Maps';
+import SplashScreen from './Screen/SplashScreen/SplashScreen';
 
 
 const Stack = createStackNavigator();
@@ -39,30 +40,14 @@ export default class App extends Component {
   
   }
   componentDidMount() {
-    auth().onAuthStateChanged((userdata)=>{
-        console.log("user" + JSON.stringify(userdata))
-        if (userdata ===null){
-        this.setState({isLoggedIn:false})
-        }else{
-         this.setState({user:userdata,isLoggedIn:true})
-        }
-    });
-   /* firestore()
-      .collection('users')
-      .get()
-      .then(querySnapshot => {
-        console.log('Total users: ', querySnapshot.size);
-
-        querySnapshot.forEach(documentSnapshot => {
-          console.log('User ID: ', documentSnapshot.id, documentSnapshot.data());
-        });
-      });*/
-      
-      
-
 
   }
   
+  
+   
+   
+   
+   
 
     
    
@@ -73,29 +58,12 @@ export default class App extends Component {
     return (
       
       <NavigationContainer>
-         <Stack.Navigator>
-         
-          { this.state.isLoggedIn ?(
-          <>
-          <Stack.Screen name="Dashboard" component={Dashboard} />
-          <Stack.Screen name="Registration" component={Register} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Maps" component={Maps} />
-           </> ) : (
-           <>
-          
-          <Stack.Screen name="Dashboard" component={Dashboard} />
-          <Stack.Screen name="Registration" component={Register} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Maps" component={Maps} />
-          
-           </>
-           
-           )}
-           
-          
-         
-            
+         <Stack.Navigator>  
+            <Stack.Screen name="Splash" component={SplashScreen} />
+             <Stack.Screen name="Login" component={Login} />
+             <Stack.Screen name="Dashboard" component={Dashboard} />
+             <Stack.Screen name="Registration" component={Register} />
+             <Stack.Screen name="Maps" component={Maps}/> 
          </Stack.Navigator>
       </NavigationContainer>
     

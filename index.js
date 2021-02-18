@@ -16,6 +16,7 @@ import { COLOR, ThemeContext, getTheme } from 'react-native-material-ui';
 
 
  import React, { Component } from 'react'
+import Laporan from './Screen/Laporan/Laporan';
  
   class Main extends Component {
      uiTheme = {
@@ -31,8 +32,8 @@ import { COLOR, ThemeContext, getTheme } from 'react-native-material-ui';
     
      render() {
          return (
-          <ThemeContext.Provider value={getTheme(this.uiTheme)}>
-            <App />
+          <ThemeContext.Provider >
+            <Laporan />
           </ThemeContext.Provider>
          )
      }

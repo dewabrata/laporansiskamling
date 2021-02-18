@@ -23,6 +23,7 @@ import Geolocation from '@react-native-community/geolocation';
 
 
 class Dashboard extends Component {
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -33,24 +34,42 @@ class Dashboard extends Component {
         {id:4, title: "Signout", image:"https://img.icons8.com/color/70/000000/shutdown.png"} ,
         
       ],
-      counter : 1
+      counter : 1,
+      email:""
     };
   }
   
   componentDidMount(){
+    this._isMounted = true;
+    auth().onAuthStateChanged((user) => {
+      if(user){
+    
      
+      if(this._isMounted){
+      console.log(user.email);
+      this.setState({email: user.email});
+      }
+      }else{
+        this.props.navigation.reset({
+          index: 0,
+          routes: [{name: 'Login'}],
+        });
+      
+      }
+    })
   }
   
-  
+  componentWillUnmount(){
+    this._isMounted = false;
+
+  }
   pushPanicButton = () =>{
   
     if(this.state.counter<3){
      let dummyCounter = this.state.counter;
      this.setState({counter: dummyCounter+1})
     }else{
-  
-    if (this.hasLocationPermission) {
-      
+    
       Geolocation.getCurrentPosition(
         info => {
             const { coords } = info
@@ -61,7 +80,7 @@ class Dashboard extends Component {
             database()
                   .ref('/maps/'+uniqueId)
                   .set({
-                    email: 'uniqueId',
+                    email: this.state.email,
                     latitude: coords.latitude,
                     longitude:coords.longitude
                     
@@ -85,8 +104,6 @@ class Dashboard extends Component {
         }
     )
     }
-      
-    }
   
   
   }
@@ -98,6 +115,9 @@ class Dashboard extends Component {
     case "Map" :
     
        this.props.navigation.navigate("Maps")
+    break;
+    case "Signout":
+    this.logout()
     break;
     
     
@@ -111,9 +131,15 @@ class Dashboard extends Component {
       .signOut()
       .then(() => {
       console.log('User signed out!')
-      this.props.navigation.navigate("Login")
+      this.props.navigation.reset({
+        index: 0,
+        routes: [{name: 'Login'}],
+      });
       }).catch((error) => {
-        this.props.navigation.navigate("Login")
+        this.props.navigation.reset({
+          index: 0,
+          routes: [{name: 'Login'}],
+        });
       
       });
     
