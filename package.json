@@ -16,6 +16,7 @@
     "@react-native-firebase/auth": "^10.7.0",
     "@react-native-firebase/database": "^10.7.0",
     "@react-native-firebase/firestore": "^10.7.0",
+    "@react-native-firebase/storage": "^10.8.0",
     "@react-navigation/native": "^5.9.2",
     "@react-navigation/stack": "^5.14.2",
     "@voximplant/react-native-foreground-service": "^2.0.0",
